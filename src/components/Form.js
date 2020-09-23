@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 import Div from "styled-kit/Div";
 
@@ -12,7 +13,15 @@ const Form = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log("Click");
+
+    axios
+      .get(`https://api.github.com/search/users?q=${userNameValue}`)
+      .then((response) => {
+        console.log("response", response.data);
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
   };
 
   return (
