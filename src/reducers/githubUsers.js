@@ -14,7 +14,6 @@ export const getGithubUsers = userName => dispatch => {
       type: LOADED_GITHUB_USERS,
       payload: response.data.items
     });
-    console.log("response", response.data);
   })
   .catch((error) => {
     console.log("something went wrong", error);

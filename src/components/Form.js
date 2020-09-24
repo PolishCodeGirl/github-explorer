@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
 
 import Div from "styled-kit/Div";
 
+import { dispatch } from '../store';
 import { getGithubUsers } from '../reducers/githubUsers';
 
-const mapStateToProps = state => {
-  console.log(state.githubAccounts);
-  return { githubAccounts: state.githubAccounts };
-}
-
-const Form = props => {
-  const [userNameValue, setUserNameValue] = useState("");
+const Form = () => {
+  const [userNameValue, setUserNameValue] = useState('');
 
   const handleOnChange = (event) => {
     setUserNameValue(event.target.value);
@@ -21,7 +16,7 @@ const Form = props => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    props.dispatch(getGithubUsers(userNameValue));
+    dispatch(getGithubUsers(userNameValue));
   };
 
   return (
@@ -44,10 +39,11 @@ const Form = props => {
   );
 };
 
-export default connect(mapStateToProps)(Form);
+export default Form;
 
 const Input = styled.input`
   padding: 5px;
+  outline: none;
 `;
 
 const Button = styled.button`
@@ -56,4 +52,5 @@ const Button = styled.button`
   border: 1px solid lightblue;
   color: white;
   padding: 5px;
+  outline: none;
 `;
