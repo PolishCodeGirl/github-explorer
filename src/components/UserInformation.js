@@ -24,7 +24,7 @@ const UserInformation = ({ userName, reposUrl, children }) => {
         <Title>{userName}</Title>
         <Arrow isRotated={isOpen}>▼</Arrow>
       </Wrapper>
-      <HeightTransition isActive={isOpen}>{children}</HeightTransition>
+      {children && <HeightTransition isActive={isOpen}>{children}</HeightTransition>}
     </Div>
   );
 };

@@ -23,7 +23,7 @@ export const getGithubUsers = userName => dispatch => {
 }
 
 export const getUserRepos = (userName, reposUrl) => dispatch => {
-  axios.get(reposUrl)
+  axios.get(`${reposUrl}?&page=1&per_page=5`)
   .then(response => {
     dispatch({
       type: LOAD_USER_REPOS,

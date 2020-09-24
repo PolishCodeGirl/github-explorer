@@ -6,9 +6,9 @@ import Form from "./components/Form";
 import UserInformation from "./components/UserInformation";
 import UserTile from "./components/UserTile";
 
-const mapStateToProps = ({ githubAccounts }) => ({ githubAccounts });
+const mapStateToProps = ({ githubAccounts, userRepos }) => ({ githubAccounts, userRepos });
 
-function App({ githubAccounts }) {
+function App({ githubAccounts, userRepos }) {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,8 +17,11 @@ function App({ githubAccounts }) {
         {
           githubAccounts.length > 0 && githubAccounts.map(account => (
             <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
-              <UserTile title="lalalal" description="blab;ab;ab" stars={34} />
-              <UserTile title="lalalal" description="blab;ab;ab" stars={34} />
+              {
+                userRepos[account.login] && userRepos[account.login].map(repo => (
+                  <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} />
+                ))
+              }
             </UserInformation>
           ))
         }
