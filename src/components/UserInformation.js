@@ -13,7 +13,7 @@ const UserInformation = ({ userName, children }) => {
 
   return (
     <Div column mTop={10} onClick={handleClick}>
-      <Wrapper>
+      <Wrapper padding={5} justifyBetween>
         <Title>{userName}</Title>
         <Arrow isRotated={isOpen}>▼</Arrow>
       </Wrapper>
