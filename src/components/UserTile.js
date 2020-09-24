@@ -16,9 +16,10 @@ const UserTile = ({ title, description, stars }) => (
 export default UserTile;
 
 const Wrapper = styled(Div)`
-  width: 200px;
   padding: 15px 5px;
   background-color: gray;
+
+  width: 100%;
 
   p {
     margin: 0;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import './App.css';
+import Div from "styled-kit/Div";
 
 import Form from "./components/Form";
 import UserInformation from "./components/UserInformation";
@@ -10,8 +10,8 @@ const mapStateToProps = ({ githubAccounts, userRepos }) => ({ githubAccounts, us
 
 function App({ githubAccounts, userRepos }) {
   return (
-    <div className="App">
-      <header className="App-header">
+    <Div justifyCenter width='100%'>
+      <Div column itemsCenter justifyCenter width='100%' maxWidth={500}>
         <Form />
 
         {
@@ -25,8 +25,8 @@ function App({ githubAccounts, userRepos }) {
             </UserInformation>
           ))
         }
-      </header>
-    </div>
+      </Div>
+    </Div>
   );
 }
 

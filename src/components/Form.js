@@ -20,7 +20,7 @@ const Form = () => {
   };
 
   return (
-    <form>
+    <FormWrapper>
       <Div mTop={32}>
         <Input
           type="text"
@@ -35,13 +35,19 @@ const Form = () => {
           Search
         </Button>
       </Div>
-    </form>
+    </FormWrapper>
   );
 };
 
 export default Form;
 
+const FormWrapper = styled.form`
+  width: 100%;
+  max-width: 500px;
+`
+
 const Input = styled.input`
+  width: 100%;
   padding: 5px;
   outline: none;
 `;
