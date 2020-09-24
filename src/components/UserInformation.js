@@ -4,11 +4,18 @@ import styled from "styled-components";
 import Div from "styled-kit/Div";
 import HeightTransition from "styled-kit/HeightTransition";
 
-const UserInformation = ({ userName, children }) => {
+import { dispatch, getState } from '../store';
+import { getUserRepos } from '../reducers/githubUsers';
+
+const UserInformation = ({ userName, reposUrl, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
     setIsOpen((state) => !state);
+
+    if (getState().userRepos[userName]) return;
+
+    dispatch(getUserRepos(userName, reposUrl));
   };
 
   return (

@@ -11,6 +11,6 @@ const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 const store = createStore(githubUsers, enhancer);
 
-export const { dispatch } = store;
+export const { dispatch, getState } = store;
 
 export default store;

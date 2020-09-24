@@ -16,7 +16,7 @@ function App({ githubAccounts }) {
 
         {
           githubAccounts.length > 0 && githubAccounts.map(account => (
-            <UserInformation userName={account.login} key={account.id}>
+            <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
               <UserTile title="lalalal" description="blab;ab;ab" stars={34} />
               <UserTile title="lalalal" description="blab;ab;ab" stars={34} />
             </UserInformation>
