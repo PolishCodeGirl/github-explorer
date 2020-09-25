@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Div from "styled-kit/Div";
 
 import { dispatch } from '../store';
-import { getGithubUsers } from '../reducers/githubUsers';
+import { getGithubUsers, clearUsersRepos } from '../reducers/githubUsers';
 
 const Form = () => {
   const [userNameValue, setUserNameValue] = useState('');
@@ -17,6 +17,7 @@ const Form = () => {
     event.preventDefault();
 
     dispatch(getGithubUsers(userNameValue));
+    dispatch(clearUsersRepos());
   };
 
   return (

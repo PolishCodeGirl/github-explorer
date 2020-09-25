@@ -3,6 +3,7 @@ import axios from "axios";
 const LOADING_GITHUB_USERS = 'LOADING_GITHUB_USERS';
 const LOAD_GITHUB_USERS = 'LOAD_GITHUB_USERS';
 const LOAD_USER_REPOS = 'LOAD_USER_REPOS';
+const CLEAR_USERS_REPOS = 'CLEAR_USERS_REPOS';
 
 const initialState = {
   githubAccounts: [],
@@ -36,12 +37,20 @@ export const getUserRepos = (userName, reposUrl) => dispatch => {
   })
 }
 
+export const clearUsersRepos = () => dispatch => {
+  dispatch({
+    type: CLEAR_USERS_REPOS
+  })
+}
+
 const githubUsers = (state = initialState, action) => {
   switch(action.type) {
     case LOAD_GITHUB_USERS:
       return { ...state, githubAccounts: action.payload }
-      case LOAD_USER_REPOS:
-        return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }}
+    case LOAD_USER_REPOS:
+      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }}
+    case CLEAR_USERS_REPOS:
+      return { ...state, userRepos: {} }
     default:
       return state;
   }
