@@ -16,7 +16,7 @@ const Form = () => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    dispatch(getGithubUsers(userNameValue));
+    dispatch(getGithubUsers(userNameValue.replace(/\s/g, '')));
     dispatch(clearUsersRepos());
   };
 

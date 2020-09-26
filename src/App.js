@@ -51,4 +51,5 @@ export default connect(mapStateToProps)(App);
 const AppContainer = styled(Div)`
   font-size: 16px;
   margin: 10px;
+  word-break: break-word;
 `;

@@ -15,8 +15,8 @@ const defaultProps = {
 }
 
 const UserTile = ({ title, description, stars }) => (
-  <Wrapper mTop={5} justifyBetween listRight={5}>
-    <Div column itemsStart>
+  <Wrapper mTop={5} justifyBetween>
+    <Div column itemsStart width="90%">
       <Title>{title}</Title>
       <Description>{description}</Description>
     </Div>
