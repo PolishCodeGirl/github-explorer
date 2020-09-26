@@ -6,10 +6,11 @@ import Form from "./components/Form";
 import UserInformation from "./components/UserInformation";
 import UserTile from "./components/UserTile";
 import InfoBox from "./components/InfoBox";
+import Loader from "./components/Loader";
 
-const mapStateToProps = ({ githubAccounts, userRepos }) => ({ githubAccounts, userRepos });
+const mapStateToProps = ({ githubAccounts, userRepos, userRepoLoading }) => ({ githubAccounts, userRepos, userRepoLoading });
 
-function App({ githubAccounts, userRepos }) {
+function App({ githubAccounts, userRepos, userRepoLoading }) {
   return (
     <Div justifyCenter width='100%'>
       <Div column itemsCenter justifyCenter width='100%' maxWidth={500}>
@@ -19,15 +20,14 @@ function App({ githubAccounts, userRepos }) {
           githubAccounts.length > 0 && githubAccounts.map(account => (
             <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
               {
-                userRepos[account.login] && userRepos[account.login].map(repo => (
-                  <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} />
-                ))
+                userRepoLoading ? <Loader /> :
+                  userRepos[account.login]?.length === 0 ? <InfoBox message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
+                    <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} />
+                  ))
               }
             </UserInformation>
           ))
         }
-
-        <InfoBox message="Ala ma kota" />
       </Div>
     </Div>
   );

@@ -1,13 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Div from 'styled-kit/Div';
 
-const InfoBox = ({ message }) => (
-    <Wrapper justifyCenter mTop={5}>
+const propTypes = {
+    message: PropTypes.string.isRequired
+}
+
+const InfoBox = ({ message, props }) => (
+    <Wrapper justifyCenter mTop={5} {...props}>
         <p>{message}</p>
     </Wrapper>
 );
+
+InfoBox.propTypes = propTypes;
 
 export default InfoBox;
 

@@ -3,11 +3,13 @@ import axios from "axios";
 const LOADING_GITHUB_USERS = 'LOADING_GITHUB_USERS';
 const LOAD_GITHUB_USERS = 'LOAD_GITHUB_USERS';
 const LOAD_USER_REPOS = 'LOAD_USER_REPOS';
+const LOADING_USER_REPOS = 'LOADING_USER_REPOS';
 const CLEAR_USERS_REPOS = 'CLEAR_USERS_REPOS';
 
 const initialState = {
   githubAccounts: [],
   userRepos: {},
+  userRepoLoading: false,
 };
 
 export const getGithubUsers = userName => dispatch => {
@@ -24,6 +26,8 @@ export const getGithubUsers = userName => dispatch => {
 }
 
 export const getUserRepos = (userName, reposUrl) => dispatch => {
+  dispatch({ type: LOADING_USER_REPOS});
+  
   axios.get(`${reposUrl}?&page=1&per_page=5`)
   .then(response => {
     dispatch({
@@ -48,7 +52,9 @@ const githubUsers = (state = initialState, action) => {
     case LOAD_GITHUB_USERS:
       return { ...state, githubAccounts: action.payload }
     case LOAD_USER_REPOS:
-      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }}
+      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }, userRepoLoading: false}
+    case LOADING_USER_REPOS:
+      return { ...state, userRepoLoading: true}
     case CLEAR_USERS_REPOS:
       return { ...state, userRepos: {} }
     default:
