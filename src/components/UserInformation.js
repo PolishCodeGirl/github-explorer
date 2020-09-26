@@ -19,8 +19,8 @@ const UserInformation = ({ userName, reposUrl, children }) => {
   };
 
   return (
-    <Div column mTop={10} width='100%' onClick={handleClick}>
-      <Div padding={5} justifyBetween style={{ backgroundColor: 'lightgray'}}>
+    <Div column mTop={10} width='100%'>
+      <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: 'lightgray'}}>
         <Title>{userName}</Title>
         <Arrow isRotated={isOpen}>▼</Arrow>
       </Div>

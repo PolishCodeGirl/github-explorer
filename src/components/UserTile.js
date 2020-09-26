@@ -20,6 +20,7 @@ const Wrapper = styled(Div)`
   background-color: gray;
 
   width: 100%;
+  box-sizing: border-box;
 
   p {
     margin: 0;

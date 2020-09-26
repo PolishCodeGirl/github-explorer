@@ -5,6 +5,7 @@ import Div from "styled-kit/Div";
 import Form from "./components/Form";
 import UserInformation from "./components/UserInformation";
 import UserTile from "./components/UserTile";
+import InfoBox from "./components/InfoBox";
 
 const mapStateToProps = ({ githubAccounts, userRepos }) => ({ githubAccounts, userRepos });
 
@@ -25,6 +26,8 @@ function App({ githubAccounts, userRepos }) {
             </UserInformation>
           ))
         }
+
+        <InfoBox message="Ala ma kota" />
       </Div>
     </Div>
   );
