@@ -20,7 +20,7 @@ export const getGithubUsers = userName => dispatch => {
   .then(response => {
     dispatch({
       type: LOAD_GITHUB_USERS,
-      payload: response.data.items
+      payload: response.data.items.map(({id, login, repos_url}) => ({id, login, repos_url}))
     });
   })
   .catch((error) => {
@@ -35,7 +35,7 @@ export const getUserRepos = (userName, reposUrl) => dispatch => {
   .then(response => {
     dispatch({
       type: LOAD_USER_REPOS,
-      payload: response.data,
+      payload: response.data.map(({id, name, description, stargazers_count}) => ({id, name, description, stargazers_count})),
       userName
     })
   })

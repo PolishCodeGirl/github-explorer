@@ -1,14 +1,21 @@
 import React from 'react';
-import { connect } from "react-redux";
-import Div from "styled-kit/Div";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Div from 'styled-kit/Div';
 
-import Form from "./components/Form";
-import UserInformation from "./components/UserInformation";
-import UserTile from "./components/UserTile";
-import InfoBox from "./components/InfoBox";
-import Loader from "./components/Loader";
-
+import Form from './components/Form';
+import UserInformation from './components/UserInformation';
+import UserTile from './components/UserTile';
+import InfoBox from './components/InfoBox';
+import Loader from './components/Loader';
+ 
 const mapStateToProps = ({ githubAccounts, userRepos, userReposLoading }) => ({ githubAccounts, userRepos, userReposLoading });
+
+const propTypes = {
+  githubAccounts: PropTypes.arrayOf(PropTypes.object),
+  userRepos: PropTypes.objectOf(PropTypes.array),
+  userReposLoading: PropTypes.bool
+}
 
 function App({ githubAccounts, userRepos, userReposLoading }) {
   return (
@@ -32,5 +39,7 @@ function App({ githubAccounts, userRepos, userReposLoading }) {
     </Div>
   );
 }
+
+App.propTypes = propTypes;
 
 export default connect(mapStateToProps)(App);

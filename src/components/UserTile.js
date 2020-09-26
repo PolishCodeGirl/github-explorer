@@ -1,7 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import Div from "styled-kit/Div";
+import Div from 'styled-kit/Div';
+
+const propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  stars: PropTypes.number.isRequired,
+};
+
+const defaultProps = {
+  description: ''
+}
 
 const UserTile = ({ title, description, stars }) => (
   <Wrapper mTop={5} justifyBetween>
@@ -12,6 +23,9 @@ const UserTile = ({ title, description, stars }) => (
     <Title style={{ fontSize: 14 }}>{`${stars} ★`}</Title>
   </Wrapper>
 );
+
+UserTile.propTypes = propTypes;
+UserTile.defaultProps = defaultProps;
 
 export default UserTile;
 
