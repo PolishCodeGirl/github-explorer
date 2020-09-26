@@ -8,9 +8,9 @@ import UserTile from "./components/UserTile";
 import InfoBox from "./components/InfoBox";
 import Loader from "./components/Loader";
 
-const mapStateToProps = ({ githubAccounts, userRepos, userRepoLoading }) => ({ githubAccounts, userRepos, userRepoLoading });
+const mapStateToProps = ({ githubAccounts, userRepos, userReposLoading }) => ({ githubAccounts, userRepos, userReposLoading });
 
-function App({ githubAccounts, userRepos, userRepoLoading }) {
+function App({ githubAccounts, userRepos, userReposLoading }) {
   return (
     <Div justifyCenter width='100%'>
       <Div column itemsCenter justifyCenter width='100%' maxWidth={500}>
@@ -20,7 +20,7 @@ function App({ githubAccounts, userRepos, userRepoLoading }) {
           githubAccounts.length > 0 && githubAccounts.map(account => (
             <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
               {
-                userRepoLoading ? <Loader /> :
+                userReposLoading ? <Loader /> :
                   userRepos[account.login]?.length === 0 ? <InfoBox message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
                     <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} />
                   ))
