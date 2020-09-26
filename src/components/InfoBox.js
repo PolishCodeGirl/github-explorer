@@ -24,7 +24,6 @@ const Wrapper = styled(Div)`
     border: 2px solid lightblue;
 
     border-radius: 2px;
-    font-size: 16px;
 
     padding: 15px;
 `

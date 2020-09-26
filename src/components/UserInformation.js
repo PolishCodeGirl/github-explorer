@@ -32,7 +32,7 @@ const UserInformation = ({ userName, reposUrl, children }) => {
   return (
     <Div column mTop={10} width='100%'>
       <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: 'lightgray'}}>
-        <Title>{userName}</Title>
+        <p>{userName}</p>
         <Arrow isRotated={isOpen}>▼</Arrow>
       </Div>
       {children && <HeightTransition isActive={isOpen}>{children}</HeightTransition>}
@@ -45,13 +45,7 @@ UserInformation.defaultProps = defaultProps;
 
 export default UserInformation;
 
-const Title = styled.p`
-  margin: 0;
-  font-size: 16px;
-`;
-
 const Arrow = styled.p`
-  margin: 0;
   font-size: 18px;
   font-weight: bold;
 

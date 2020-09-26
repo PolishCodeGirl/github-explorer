@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Div from 'styled-kit/Div';
 
 import Form from './components/Form';
@@ -21,7 +22,7 @@ const propTypes = {
 function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading }) {
   return (
     <Div justifyCenter width='100%'>
-      <Div column itemsCenter justifyCenter width='100%' maxWidth={500}>
+      <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
         <Form />
 
         {
@@ -38,7 +39,7 @@ function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoadin
                 </UserInformation>
               ))
         }
-      </Div>
+      </AppContainer>
     </Div>
   );
 }
@@ -46,3 +47,8 @@ function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoadin
 App.propTypes = propTypes;
 
 export default connect(mapStateToProps)(App);
+
+const AppContainer = styled(Div)`
+  font-size: 16px;
+  margin: 10px;
+`;

@@ -15,7 +15,7 @@ const defaultProps = {
 }
 
 const UserTile = ({ title, description, stars }) => (
-  <Wrapper mTop={5} justifyBetween>
+  <Wrapper mTop={5} justifyBetween listRight={5}>
     <Div column itemsStart>
       <Title>{title}</Title>
       <Description>{description}</Description>
@@ -35,14 +35,9 @@ const Wrapper = styled(Div)`
 
   width: 100%;
   box-sizing: border-box;
-
-  p {
-    margin: 0;
-  }
 `;
 
 const Title = styled.p`
-  font-size: 16px;
   font-weight: bold;
 `
 

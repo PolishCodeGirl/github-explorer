@@ -44,7 +44,6 @@ export default Form;
 
 const FormWrapper = styled.form`
   width: 100%;
-  max-width: 500px;
 `
 
 const Input = styled.input`
@@ -55,8 +54,8 @@ const Input = styled.input`
 
 const Button = styled.button`
   width: 100%;
-  background-color: lightblue;
-  border: 1px solid lightblue;
+  background-color: #3498db;
+  border: 1px solid #3498db;
   color: white;
   padding: 5px;
   outline: none;
