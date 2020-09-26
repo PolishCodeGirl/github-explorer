@@ -7,7 +7,7 @@ const LOADING_USER_REPOS = 'LOADING_USER_REPOS';
 const CLEAR_USERS_REPOS = 'CLEAR_USERS_REPOS';
 
 const initialState = {
-  githubAccounts: [],
+  githubAccounts: null,
   githubAccountsLoading: false,
   userRepos: {},
   userReposLoading: false,
