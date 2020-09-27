@@ -17,7 +17,7 @@ const mapStateToProps = ({ githubAccounts, githubAccountsLoading, searchedName, 
 });
 
 const propTypes = {
-  githubAccounts: PropTypes.arrayOf(PropTypes.object).isRequired, // Fix this prop type
+  githubAccounts: PropTypes.arrayOf(PropTypes.object).isRequired,
   githubAccountsLoading: PropTypes.bool.isRequired,
   searchedName: PropTypes.string.isRequired,
   error: PropTypes.bool.isRequired
@@ -37,14 +37,13 @@ function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
 
         {
           githubAccountsLoading ? <Loader /> :
-            githubAccounts === null ? null :
-              githubAccounts?.length === 0 ? <InfoBox type="info" message={`Not users available under ${searchedName}`} /> :
+          searchedName ? githubAccounts?.length === 0 ? <InfoBox type="error" message={`Not users available under ${searchedName}`} /> :
               <>
                 <Info>{`Showing users for "${searchedName}"`}</Info> 
                 {githubAccounts?.map(account => (
                   <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id} />
                 ))}
-              </>
+              </> : null
         }
       </AppContainer>
     </Div>

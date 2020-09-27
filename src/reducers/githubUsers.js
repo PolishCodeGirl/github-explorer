@@ -10,7 +10,7 @@ const CLEAR_ERRORS = 'SHOW_ERROR';
 
 const initialState = {
   searchedName: '',
-  githubAccounts: null,
+  githubAccounts: [],
   githubAccountsLoading: false,
   userRepos: {},
   nameOfUserWithReposLoading: '',
