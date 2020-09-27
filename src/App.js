@@ -40,7 +40,7 @@ function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
   if (githubAccountsLoading) content = <Loader />
     
   return (
-    <Div column itemsCenter width='100%'>
+    <Div column itemsCenter margin={10}>
       {error && <InfoBox type="error" message='Something went wrong, try again!' />}
       
       <h1>
@@ -61,7 +61,6 @@ export default connect(mapStateToProps)(App);
 
 const AppContainer = styled(Div)`
   font-size: 16px;
-  margin: 10px;
   word-break: break-word;
 `;
 

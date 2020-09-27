@@ -10,18 +10,16 @@ import { getGithubUsers, clearUsersRepos } from '../reducers/githubUsers';
 
 const mapStateToProps = ({ searchedName }) => ({ searchedName });
 
-const propTypes = {
-  searchedName: PropTypes.string.isRequired
-}
+const propTypes = { searchedName: PropTypes.string.isRequired }
 
 const Form = ({ searchedName }) => {
   const [userNameValue, setUserNameValue] = useState('');
 
-  const handleOnChange = (event) => {
+  const handleOnChange = event => {
     setUserNameValue(event.target.value);
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = event => {
     event.preventDefault();
 
     if (searchedName !== userNameValue) {
@@ -31,33 +29,25 @@ const Form = ({ searchedName }) => {
   };
 
   return (
-    <FormWrapper onSubmit={handleSearch}>
-      <Div>
-        <Input
-          type="text"
-          value={userNameValue}
-          placeholder="Enter username"
-          required
-          onChange={handleOnChange}
-        />
-      </Div>
-      
-      <Div mTop={24}>
-        <Button type="submit">
-          Search
-        </Button>
-      </Div>
-    </FormWrapper>
+    <Div as="form" column width="100%" onSubmit={handleSearch}>
+      <Input
+        type="text"
+        value={userNameValue}
+        placeholder="Enter username"
+        required
+        onChange={handleOnChange}
+      />
+    
+      <Button type="submit">
+        Search
+      </Button>
+    </Div>
   );
 };
 
 Form.propTypes = propTypes;
 
 export default connect(mapStateToProps)(Form);
-
-const FormWrapper = styled.form`
-  width: 100%;
-  `
 
 const Input = styled.input`
   width: 100%;
@@ -70,9 +60,12 @@ const Input = styled.input`
 const Button = styled.button`
   width: 100%;
   font-size: 16px;
+
+  padding: 10px;
+  margin-top: 24px;
+
   background-color: #009de0;
   border: 1px solid #009de0;
   color: white;
-  padding: 10px;
   outline: none;
 `;

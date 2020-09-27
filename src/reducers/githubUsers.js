@@ -54,11 +54,7 @@ export const getUserRepos = (userName, reposUrl) => dispatch => {
   })
 }
 
-export const clearUsersRepos = () => dispatch => {
-  dispatch({
-    type: CLEAR_USERS_REPOS
-  })
-}
+export const clearUsersRepos = () => ({ type: CLEAR_USERS_REPOS })
 
 const githubUsers = (state = initialState, action) => {
   switch(action.type) {

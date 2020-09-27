@@ -44,7 +44,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
 
   return (
     <Div column mTop={10} width='100%'>
-      <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: '#f2f2f2'}}>
+      <Div padding={5} justifyBetween onClick={handleClick} backgroundColor='#f2f2f2'>
         <p>{userName}</p>
         <Arrow isRotated={isOpen} />
       </Div>

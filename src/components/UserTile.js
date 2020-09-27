@@ -34,7 +34,6 @@ const Wrapper = styled(Div)`
   background-color: #e0e0e0;
 
   margin-left: 15px;
-  box-sizing: border-box;
 `;
 
 const TitleLink = styled.a`
