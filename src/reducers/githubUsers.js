@@ -35,7 +35,7 @@ export const getUserRepos = (userName, reposUrl) => dispatch => {
   .then(response => {
     dispatch({
       type: LOAD_USER_REPOS,
-      payload: response.data.map(({id, name, description, stargazers_count}) => ({id, name, description, stargazers_count})),
+      payload: response.data.map(({id, name, description, stargazers_count, html_url}) => ({id, name, description, stargazers_count, html_url})),
       userName
     })
   })

@@ -31,7 +31,7 @@ const UserInformation = ({ userName, reposUrl, children }) => {
 
   return (
     <Div column mTop={10} width='100%'>
-      <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: 'lightgray'}}>
+      <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: '#f2f2f2'}}>
         <p>{userName}</p>
         <Arrow isRotated={isOpen} />
       </Div>

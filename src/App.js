@@ -33,7 +33,7 @@ function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoadin
                   {
                     userReposLoading ? <Loader /> :
                       userRepos[account.login]?.length === 0 ? <InfoBox message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
-                        <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} />
+                        <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
                       ))
                   }
                 </UserInformation>

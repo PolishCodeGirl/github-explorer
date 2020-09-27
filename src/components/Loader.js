@@ -9,7 +9,7 @@ export default Loader;
 
 const StyledLoader = styled.div`
   border: 6px solid #f3f3f3;
-  border-top: 6px solid #3498db;
+  border-top: 6px solid #009de0;
   border-radius: 50%;
   width: 30px;
   height: 30px;

@@ -31,7 +31,7 @@ const Form = () => {
           onChange={handleOnChange}
         />
       </Div>
-      <Div mTop={32}>
+      <Div mTop={24}>
         <Button type="submit" onClick={handleSearch}>
           Search
         </Button>
@@ -44,19 +44,22 @@ export default Form;
 
 const FormWrapper = styled.form`
   width: 100%;
-`
+  `
 
 const Input = styled.input`
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   outline: none;
-`;
+  background-color: #f2f2f2;
+  border: 2px solid #e0e0e0;
+  `;
 
 const Button = styled.button`
   width: 100%;
-  background-color: #3498db;
-  border: 1px solid #3498db;
+  font-size: 16px;
+  background-color: #009de0;
+  border: 1px solid #009de0;
   color: white;
-  padding: 5px;
+  padding: 10px;
   outline: none;
 `;

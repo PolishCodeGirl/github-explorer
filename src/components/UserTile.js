@@ -8,19 +8,20 @@ const propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   stars: PropTypes.number.isRequired,
+  repoUrl: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
   description: ''
 }
 
-const UserTile = ({ title, description, stars }) => (
+const UserTile = ({ title, description, stars, repoUrl }) => (
   <Wrapper mTop={5} justifyBetween>
     <Div column itemsStart width="90%">
-      <Title>{title}</Title>
+      <TitleLink href={repoUrl} target='_blank' rel="noopener noreferrer">{title}</TitleLink>
       <Description>{description}</Description>
     </Div>
-    <Title style={{ fontSize: 14 }}>{`${stars} ★`}</Title>
+    <Star style={{ fontSize: 14 }}>{`${stars} ★`}</Star>
   </Wrapper>
 );
 
@@ -31,14 +32,22 @@ export default UserTile;
 
 const Wrapper = styled(Div)`
   padding: 15px 5px;
-  background-color: gray;
+  background-color: #e0e0e0;
 
-  width: 100%;
+  width: 95%;
   box-sizing: border-box;
 `;
 
-const Title = styled.p`
+const TitleLink = styled.a`
   font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+`
+
+const Star = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
 `
 
 const Description = styled.p`
