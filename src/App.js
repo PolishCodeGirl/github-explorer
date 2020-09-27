@@ -28,9 +28,13 @@ const propTypes = {
 
 function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading, error }) {
   return (
-    <Div justifyCenter width='100%'>
+    <Div column itemsCenter width='100%'>
+      {error && <InfoBox type="error" message='Something went wrong, try again!' />}
+      
+      <h1>
+        <span style={{ color: '#32d2d1', fontWeight: 'bold' }}>YND</span> Github repositories explorer
+      </h1>
       <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
-        {error && <InfoBox type="error" message='Something went wrong, try again!' />}
         <Form />
 
         {
@@ -40,7 +44,7 @@ function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoadin
                 <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
                   {
                     userReposLoading ? <Loader /> :
-                      userRepos[account.login]?.length === 0 ? <InfoBox type="info" message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
+                      userRepos[account.login]?.length === 0 ? <InfoBox type="info" message={`${account.login} doesn't have any repositories`} /> : userRepos[account.login]?.map(repo => (
                         <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
                       ))
                   }

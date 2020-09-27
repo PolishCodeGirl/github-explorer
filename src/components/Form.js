@@ -22,7 +22,7 @@ const Form = () => {
 
   return (
     <FormWrapper onSubmit={handleSearch}>
-      <Div mTop={32}>
+      <Div>
         <Input
           type="text"
           value={userNameValue}
