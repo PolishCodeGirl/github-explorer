@@ -31,6 +31,7 @@ const Form = () => {
           onChange={handleOnChange}
         />
       </Div>
+      
       <Div mTop={24}>
         <Button type="submit">
           Search

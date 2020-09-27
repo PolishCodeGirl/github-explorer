@@ -29,7 +29,7 @@ function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
       {error && <InfoBox type="error" message='Something went wrong, try again!' />}
       
       <H1>
-        <span>YND</span> Github repositories explorer
+        <span>YND</span> GitHub repositories explorer
       </H1>
 
       <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
