@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styled from "styled-components";
 
 import Div from "styled-kit/Div";
@@ -6,7 +8,13 @@ import Div from "styled-kit/Div";
 import { dispatch } from '../store';
 import { getGithubUsers, clearUsersRepos } from '../reducers/githubUsers';
 
-const Form = () => {
+const mapStateToProps = ({ searchedName }) => ({ searchedName });
+
+const propTypes = {
+  searchedName: PropTypes.string.isRequired
+}
+
+const Form = ({ searchedName }) => {
   const [userNameValue, setUserNameValue] = useState('');
 
   const handleOnChange = (event) => {
@@ -16,8 +24,10 @@ const Form = () => {
   const handleSearch = (event) => {
     event.preventDefault();
 
+    if (searchedName !== userNameValue) {
       dispatch(getGithubUsers(userNameValue.replace(/\s/g, '')));
       dispatch(clearUsersRepos());
+    }
   };
 
   return (
@@ -41,7 +51,9 @@ const Form = () => {
   );
 };
 
-export default Form;
+Form.propTypes = propTypes;
+
+export default connect(mapStateToProps)(Form);
 
 const FormWrapper = styled.form`
   width: 100%;

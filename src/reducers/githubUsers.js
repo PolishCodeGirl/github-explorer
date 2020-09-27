@@ -6,7 +6,7 @@ const LOAD_USER_REPOS = 'LOAD_USER_REPOS';
 const LOADING_USER_REPOS = 'LOADING_USER_REPOS';
 const CLEAR_USERS_REPOS = 'CLEAR_USERS_REPOS';
 const SHOW_ERRORS = 'SHOW_ERRORS';
-const CLEAR_ERRORS = 'SHOW_ERROR';
+const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const initialState = {
   searchedName: '',
