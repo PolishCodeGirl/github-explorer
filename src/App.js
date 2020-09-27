@@ -10,29 +10,37 @@ import UserTile from './components/UserTile';
 import InfoBox from './components/InfoBox';
 import Loader from './components/Loader';
 
-const mapStateToProps = ({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading }) => ({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading });
+const mapStateToProps = ({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading, error }) => ({ 
+  githubAccounts,
+  userRepos,
+  userReposLoading,
+  githubAccountsLoading,
+  error
+});
 
 const propTypes = {
-  githubAccounts: PropTypes.arrayOf(PropTypes.object),
-  userRepos: PropTypes.objectOf(PropTypes.array),
-  userReposLoading: PropTypes.bool,
-  githubAccountsLoading: PropTypes.bool
+  githubAccounts: PropTypes.arrayOf(PropTypes.object).isRequired, // Fix this prop type
+  userRepos: PropTypes.objectOf(PropTypes.array).isRequired,
+  userReposLoading: PropTypes.bool.isRequired,
+  githubAccountsLoading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired
 }
 
-function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading }) {
+function App({ githubAccounts, userRepos, userReposLoading, githubAccountsLoading, error }) {
   return (
     <Div justifyCenter width='100%'>
       <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
+        {error && <InfoBox type="error" message='Something went wrong, try again!' />}
         <Form />
 
         {
           githubAccountsLoading ? <Loader /> :
             githubAccounts === null ? null :
-              githubAccounts?.length === 0 ? <InfoBox message="Not users available under this name" /> : githubAccounts?.map(account => (
+              githubAccounts?.length === 0 ? <InfoBox type="info" message="Not users available under this name" /> : githubAccounts?.map(account => (
                 <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id}>
                   {
                     userReposLoading ? <Loader /> :
-                      userRepos[account.login]?.length === 0 ? <InfoBox message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
+                      userRepos[account.login]?.length === 0 ? <InfoBox type="info" message={`${account.login} doesn't have any repozitories`} /> : userRepos[account.login]?.map(repo => (
                         <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
                       ))
                   }

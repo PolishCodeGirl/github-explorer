@@ -5,16 +5,20 @@ const LOADING_GITHUB_USERS = 'LOADING_GITHUB_USERS';
 const LOAD_USER_REPOS = 'LOAD_USER_REPOS';
 const LOADING_USER_REPOS = 'LOADING_USER_REPOS';
 const CLEAR_USERS_REPOS = 'CLEAR_USERS_REPOS';
+const SHOW_ERRORS = 'SHOW_ERRORS';
+const CLEAR_ERRORS = 'SHOW_ERROR';
 
 const initialState = {
   githubAccounts: null,
   githubAccountsLoading: false,
   userRepos: {},
   userReposLoading: false,
+  error: false
 };
 
 export const getGithubUsers = userName => dispatch => {
-  dispatch({ type: LOADING_GITHUB_USERS});
+  dispatch({ type: CLEAR_ERRORS });
+  dispatch({ type: LOADING_GITHUB_USERS });
 
   axios.get(`https://api.github.com/search/users?q=${userName}&page=1&per_page=5`)
   .then(response => {
@@ -24,11 +28,13 @@ export const getGithubUsers = userName => dispatch => {
     });
   })
   .catch((error) => {
+    dispatch({ type: SHOW_ERRORS });
     console.log("something went wrong", error);
   });
 }
 
 export const getUserRepos = (userName, reposUrl) => dispatch => {
+  dispatch({ type: CLEAR_ERRORS });
   dispatch({ type: LOADING_USER_REPOS});
 
   axios.get(`${reposUrl}?&page=1&per_page=5`)
@@ -40,6 +46,7 @@ export const getUserRepos = (userName, reposUrl) => dispatch => {
     })
   })
   .catch(error => {
+    dispatch({ type: SHOW_ERRORS });
     console.log('Upsssss', error);
   })
 }
@@ -62,6 +69,10 @@ const githubUsers = (state = initialState, action) => {
       return { ...state, userReposLoading: true}
     case CLEAR_USERS_REPOS:
       return { ...state, userRepos: {} }
+    case SHOW_ERRORS:
+      return { ...state, error: true, githubAccountsLoading: false, userReposLoading: false }
+    case CLEAR_ERRORS:
+      return { ...state, error: false }
     default:
       return state;
   }

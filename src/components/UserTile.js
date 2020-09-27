@@ -34,7 +34,7 @@ const Wrapper = styled(Div)`
   padding: 15px 5px;
   background-color: #e0e0e0;
 
-  width: 95%;
+  margin-left: 15px;
   box-sizing: border-box;
 `;
 

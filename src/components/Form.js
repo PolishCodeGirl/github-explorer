@@ -16,12 +16,12 @@ const Form = () => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    dispatch(getGithubUsers(userNameValue.replace(/\s/g, '')));
-    dispatch(clearUsersRepos());
+      dispatch(getGithubUsers(userNameValue.replace(/\s/g, '')));
+      dispatch(clearUsersRepos());
   };
 
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={handleSearch}>
       <Div mTop={32}>
         <Input
           type="text"
@@ -32,7 +32,7 @@ const Form = () => {
         />
       </Div>
       <Div mTop={24}>
-        <Button type="submit" onClick={handleSearch}>
+        <Button type="submit">
           Search
         </Button>
       </Div>
