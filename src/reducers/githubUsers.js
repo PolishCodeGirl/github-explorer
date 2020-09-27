@@ -9,6 +9,7 @@ const SHOW_ERRORS = 'SHOW_ERRORS';
 const CLEAR_ERRORS = 'SHOW_ERROR';
 
 const initialState = {
+  searchedName: '',
   githubAccounts: null,
   githubAccountsLoading: false,
   userRepos: {},
@@ -24,7 +25,8 @@ export const getGithubUsers = userName => dispatch => {
   .then(response => {
     dispatch({
       type: LOAD_GITHUB_USERS,
-      payload: response.data.items.map(({id, login, repos_url}) => ({id, login, repos_url}))
+      payload: response.data.items.map(({id, login, repos_url}) => ({id, login, repos_url})),
+      userName
     });
   })
   .catch((error) => {
@@ -60,7 +62,7 @@ export const clearUsersRepos = () => dispatch => {
 const githubUsers = (state = initialState, action) => {
   switch(action.type) {
     case LOAD_GITHUB_USERS:
-      return { ...state, githubAccounts: action.payload, githubAccountsLoading: false }
+      return { ...state, githubAccounts: action.payload, githubAccountsLoading: false, searchedName: action.userName }
     case LOADING_GITHUB_USERS:
       return { ...state, githubAccountsLoading: true}
     case LOAD_USER_REPOS:
