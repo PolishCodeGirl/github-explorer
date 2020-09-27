@@ -33,6 +33,15 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
     !userReposLoading && dispatch(getUserRepos(userName, reposUrl));
   };
 
+  let content;
+  if (userRepos[userName]?.length > 0) content = userRepos[userName]?.map(repo => (
+    <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
+  ))
+
+  if (userRepos[userName]?.length === 0) content = <InfoBox type="info" message={`${userName} doesn't have any repositories`} />;
+
+  if (nameOfUserWithReposLoading === userName) content = <Loader />;
+
   return (
     <Div column mTop={10} width='100%'>
       <Div padding={5} justifyBetween onClick={handleClick} style={{ backgroundColor: '#f2f2f2'}}>
@@ -40,15 +49,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
         <Arrow isRotated={isOpen} />
       </Div>
 
-      {isOpen &&
-        <Div column>
-          { nameOfUserWithReposLoading === userName ? <Loader /> : 
-              userRepos[userName]?.length === 0 ? <InfoBox type="info" message={`${userName} doesn't have any repositories`} /> : 
-              userRepos[userName]?.map(repo => (
-                <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
-              ))}
-        </Div>
-      }
+      {isOpen && <Div column>{content}</Div>}
     </Div>
   );
 };

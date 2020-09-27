@@ -24,27 +24,32 @@ const propTypes = {
 }
 
 function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
+  let content
+
+  if (searchedName && githubAccounts.length > 0) content = (
+    <>
+      <Info>{`Showing users for "${searchedName}"`}</Info> 
+      {githubAccounts.map(account => (
+        <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id} />
+      ))}
+    </>
+  )
+  
+  if (searchedName && githubAccounts.length === 0) content = <InfoBox type="error" message={`Not users available under ${searchedName}`} />
+  
+  if (githubAccountsLoading) content = <Loader />
+    
   return (
     <Div column itemsCenter width='100%'>
       {error && <InfoBox type="error" message='Something went wrong, try again!' />}
       
-      <H1>
-        <span>YND</span> GitHub repositories explorer
-      </H1>
+      <h1>
+        <Logo>YND</Logo> GitHub repositories explorer
+      </h1>
 
       <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
         <Form />
-
-        {
-          githubAccountsLoading ? <Loader /> :
-          searchedName ? githubAccounts?.length === 0 ? <InfoBox type="error" message={`Not users available under ${searchedName}`} /> :
-              <>
-                <Info>{`Showing users for "${searchedName}"`}</Info> 
-                {githubAccounts?.map(account => (
-                  <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id} />
-                ))}
-              </> : null
-        }
+        {content}
       </AppContainer>
     </Div>
   );
@@ -60,11 +65,9 @@ const AppContainer = styled(Div)`
   word-break: break-word;
 `;
 
-const H1 = styled.h1`
-  span {
-    color: #32d2d1;
-    font-weight: bold;
-  }
+const Logo = styled.span`
+  color: #32d2d1;
+  font-weight: bold;
 `;
 
 const Info = styled.p`
