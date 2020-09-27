@@ -12,16 +12,17 @@ import UserTile from './UserTile';
 import Loader from './Loader';
 import InfoBox from './InfoBox';
 
-const mapStateToProps = ({ userRepos, nameOfUserWithReposLoading }) => ({ userRepos, nameOfUserWithReposLoading });
+const mapStateToProps = ({ userRepos, userReposLoading, nameOfUserWithReposLoading }) => ({ userRepos, userReposLoading, nameOfUserWithReposLoading });
 
 const propTypes = {
   userName: PropTypes.string.isRequired,
   reposUrl: PropTypes.string.isRequired,
   userRepos: PropTypes.objectOf(PropTypes.array).isRequired,
+  userReposLoading: PropTypes.bool.isRequired,
   nameOfUserWithReposLoading: PropTypes.string.isRequired,
 };
 
-const UserInformation = ({ userName, reposUrl, userRepos, nameOfUserWithReposLoading }) => {
+const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, nameOfUserWithReposLoading }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -29,7 +30,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, nameOfUserWithReposLoa
 
     if (getState().userRepos[userName]) return;
 
-    dispatch(getUserRepos(userName, reposUrl));
+    !userReposLoading && dispatch(getUserRepos(userName, reposUrl));
   };
 
   return (

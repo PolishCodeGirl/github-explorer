@@ -14,6 +14,7 @@ const initialState = {
   githubAccountsLoading: false,
   userRepos: {},
   nameOfUserWithReposLoading: '',
+  userReposLoading: false,
   error: false
 };
 
@@ -64,15 +65,15 @@ const githubUsers = (state = initialState, action) => {
     case LOAD_GITHUB_USERS:
       return { ...state, githubAccounts: action.payload, githubAccountsLoading: false, searchedName: action.userName }
     case LOADING_GITHUB_USERS:
-      return { ...state, githubAccountsLoading: true}
+      return { ...state, githubAccountsLoading: true }
     case LOAD_USER_REPOS:
-      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }, nameOfUserWithReposLoading: ''}
+      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }, userReposLoading: false, nameOfUserWithReposLoading: ''}
     case LOADING_USER_REPOS:
-      return { ...state, nameOfUserWithReposLoading: action.userName}
+      return { ...state, userReposLoading: true, nameOfUserWithReposLoading: action.userName }
     case CLEAR_USERS_REPOS:
       return { ...state, userRepos: {} }
     case SHOW_ERRORS:
-      return { ...state, error: true, githubAccountsLoading: false, nameOfUserWithReposLoading: '' }
+      return { ...state, error: true, githubAccountsLoading: false, userReposLoading: false, nameOfUserWithReposLoading: '' }
     case CLEAR_ERRORS:
       return { ...state, error: false }
     default:
