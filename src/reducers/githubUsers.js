@@ -12,7 +12,7 @@ const initialState = {
   githubAccounts: null,
   githubAccountsLoading: false,
   userRepos: {},
-  userReposLoading: false,
+  nameOfUserWithReposLoading: '',
   error: false
 };
 
@@ -35,7 +35,7 @@ export const getGithubUsers = userName => dispatch => {
 
 export const getUserRepos = (userName, reposUrl) => dispatch => {
   dispatch({ type: CLEAR_ERRORS });
-  dispatch({ type: LOADING_USER_REPOS});
+  dispatch({ type: LOADING_USER_REPOS, userName });
 
   axios.get(`${reposUrl}?&page=1&per_page=5`)
   .then(response => {
@@ -64,13 +64,13 @@ const githubUsers = (state = initialState, action) => {
     case LOADING_GITHUB_USERS:
       return { ...state, githubAccountsLoading: true}
     case LOAD_USER_REPOS:
-      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }, userReposLoading: false}
+      return { ...state, userRepos: { ...state.userRepos, [action.userName]: action.payload }, nameOfUserWithReposLoading: ''}
     case LOADING_USER_REPOS:
-      return { ...state, userReposLoading: true}
+      return { ...state, nameOfUserWithReposLoading: action.userName}
     case CLEAR_USERS_REPOS:
       return { ...state, userRepos: {} }
     case SHOW_ERRORS:
-      return { ...state, error: true, githubAccountsLoading: false, userReposLoading: false }
+      return { ...state, error: true, githubAccountsLoading: false, nameOfUserWithReposLoading: '' }
     case CLEAR_ERRORS:
       return { ...state, error: false }
     default:

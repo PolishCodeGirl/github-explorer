@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Div from 'styled-kit/Div';
-import HeightTransition from 'styled-kit/HeightTransition';
 
 import { dispatch, getState } from '../store';
 import { getUserRepos } from '../reducers/githubUsers';
 
+import UserTile from './UserTile';
+import Loader from './Loader';
+import InfoBox from './InfoBox';
+
+const mapStateToProps = ({ userRepos, nameOfUserWithReposLoading }) => ({ userRepos, nameOfUserWithReposLoading });
+
 const propTypes = {
   userName: PropTypes.string.isRequired,
   reposUrl: PropTypes.string.isRequired,
-  children: PropTypes.node
+  userRepos: PropTypes.objectOf(PropTypes.array).isRequired,
+  nameOfUserWithReposLoading: PropTypes.string.isRequired,
 };
 
-const defaultProps = {
-  children: null
-}
-
-const UserInformation = ({ userName, reposUrl, children }) => {
+const UserInformation = ({ userName, reposUrl, userRepos, nameOfUserWithReposLoading }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -35,15 +38,23 @@ const UserInformation = ({ userName, reposUrl, children }) => {
         <p>{userName}</p>
         <Arrow isRotated={isOpen} />
       </Div>
-      {children && <HeightTransition isActive={isOpen}>{children}</HeightTransition>}
+
+      {isOpen &&
+        <Div column>
+          { nameOfUserWithReposLoading === userName ? <Loader /> : 
+              userRepos[userName]?.length === 0 ? <InfoBox type="info" message={`${userName} doesn't have any repositories`} /> : 
+              userRepos[userName]?.map(repo => (
+                <UserTile title={repo.name} description={repo.description} stars={repo.stargazers_count} key={repo.id} repoUrl={repo.html_url} />
+              ))}
+        </Div>
+      }
     </Div>
   );
 };
 
 UserInformation.propTypes = propTypes;
-UserInformation.defaultProps = defaultProps;
 
-export default UserInformation;
+export default connect(mapStateToProps)(UserInformation);
 
 const Arrow = styled.span`
   flex: none;
