@@ -48,6 +48,7 @@ const Input = styled.input`
   outline: none;
   background-color: #f2f2f2;
   border: 2px solid #e0e0e0;
+  border-radius: 2px;
 `;
 
 const Button = styled.button`
@@ -59,6 +60,8 @@ const Button = styled.button`
 
   background-color: #009de0;
   border: 1px solid #009de0;
+  border-radius: 2px;
+
   color: white;
   outline: none;
 `;

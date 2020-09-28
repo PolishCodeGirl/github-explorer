@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
   }
-
+  
   *,
   *::before,
   *::after {

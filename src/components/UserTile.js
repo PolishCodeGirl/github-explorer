@@ -34,6 +34,7 @@ export default UserTile;
 const Wrapper = styled(Div)`
   padding: 15px 5px;
   background-color: #e0e0e0;
+  border-radius: 2px;
 
   margin-left: 15px;
 `;

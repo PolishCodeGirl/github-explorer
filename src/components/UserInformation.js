@@ -73,7 +73,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
 
   return (
     <Div column mBottom={10} width="100%">
-      <Div padding={5} justifyBetween onClick={handleClick} background="#f2f2f2">
+      <Div padding={5} justifyBetween itemsCenter onClick={handleClick} background="#f2f2f2" css="border-radius: 2px;">
         <p>{userName}</p>
         <Arrow isRotated={isOpen} />
       </Div>

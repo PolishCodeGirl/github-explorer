@@ -33,7 +33,7 @@ export const getGithubUsers = (userName) => (dispatch) => {
     })
     .catch((error) => {
       dispatch({ type: SHOW_ERRORS });
-      console.log('something went wrong', error);
+      console.log('Error information ', error);
     });
 };
 
@@ -58,7 +58,7 @@ export const getUserRepos = (userName, reposUrl) => (dispatch) => {
     })
     .catch((error) => {
       dispatch({ type: SHOW_ERRORS });
-      console.log('Upsssss', error);
+      console.log('Error information ', error);
     });
 };
 
