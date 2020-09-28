@@ -5,6 +5,8 @@ Made as a part of the recruitment process.
 
 You can run the application here [GitHub explorer](https://polishcodegirl.github.io/github-explorer/)
 
+![PolishCodeGirl GitHub Explorer](./assets/github-explorer.png "PolishCodeGirl GitHub Explorer")
+
 ### Installation
 ```bash
 npm install
