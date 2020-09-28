@@ -90,6 +90,6 @@ export default connect(mapStateToProps)(UserInformation);
 const ShowMore = styled.span`
   font-size: 14px;
   margin-top: 10px;
-  color: ${({ disabled }) => (disabled ? '#747474' : '#009de0')};
+  color: ${({ disabled }) => (disabled ? '#747474' : 'red')};
   text-align: center;
 `;
