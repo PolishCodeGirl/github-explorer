@@ -42,7 +42,7 @@ export const getUserRepos = (userName, reposUrl) => (dispatch) => {
   dispatch({ type: LOADING_USER_REPOS, userName });
 
   axios
-    .get(`${reposUrl}?&page=1&per_page=5`)
+    .get(`${reposUrl}`)
     .then((response) => {
       dispatch({
         type: LOAD_USER_REPOS,

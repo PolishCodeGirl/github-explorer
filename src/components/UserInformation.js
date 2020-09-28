@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import Div from 'styled-kit/Div';
 
@@ -28,30 +29,45 @@ const propTypes = {
 
 const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, nameOfUserWithReposLoading }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [reposConter, setReposCounter] = useState(5);
+
+  const userReposAmount = userRepos[userName]?.length;
 
   const handleClick = () => {
     setIsOpen((state) => !state);
 
     if (getState().userRepos[userName]) return;
 
-    // Make sure that we don't send request when one is already pending
+    // Make sure that we cannot send another request when one is already pending
     !userReposLoading && dispatch(getUserRepos(userName, reposUrl));
   };
 
-  let content;
-  if (userRepos[userName]?.length > 0)
-    content = userRepos[userName]?.map((repo) => (
-      <UserTile
-        title={repo.name}
-        description={repo.description}
-        stars={repo.stargazers_count}
-        key={repo.id}
-        repoUrl={repo.html_url}
-      />
-    ));
+  const handleShowMore = () => {
+    if (reposConter <= userReposAmount) {
+      setReposCounter(reposConter + 5);
+    }
+  };
 
-  if (userRepos[userName]?.length === 0)
-    content = <InfoBox type="info" message={`${userName} doesn't have any repositories`} />;
+  let content;
+  if (userReposAmount > 0)
+    content = (
+      <>
+        {userRepos[userName]?.slice(0, reposConter).map((repo) => (
+          <UserTile
+            title={repo.name}
+            description={repo.description}
+            stars={repo.stargazers_count}
+            key={repo.id}
+            repoUrl={repo.html_url}
+          />
+        ))}
+        <ShowMore onClick={handleShowMore} disabled={Boolean(reposConter > userReposAmount)}>
+          Show more
+        </ShowMore>
+      </>
+    );
+
+  if (userReposAmount === 0) content = <InfoBox type="info" message={`${userName} doesn't have any repositories`} />;
 
   if (nameOfUserWithReposLoading === userName) content = <Loader />;
 
@@ -70,3 +86,10 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
 UserInformation.propTypes = propTypes;
 
 export default connect(mapStateToProps)(UserInformation);
+
+const ShowMore = styled.span`
+  font-size: 14px;
+  margin-top: 10px;
+  color: ${({ disabled }) => (disabled ? '#747474' : '#009de0')};
+  text-align: center;
+`;
