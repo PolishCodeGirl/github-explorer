@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Div from "styled-kit/Div";
+import Div from 'styled-kit/Div';
 
 import { dispatch } from '../store';
 import { getGithubUsers, clearUsersRepos } from '../reducers/githubUsers';
 
 const mapStateToProps = ({ searchedName }) => ({ searchedName });
 
-const propTypes = { searchedName: PropTypes.string.isRequired }
+const propTypes = { searchedName: PropTypes.string.isRequired };
 
 const Form = ({ searchedName }) => {
   const [userNameValue, setUserNameValue] = useState('');
 
-  const handleOnChange = event => {
+  const handleOnChange = (event) => {
     setUserNameValue(event.target.value);
   };
 
-  const handleSearch = event => {
+  const handleSearch = (event) => {
     event.preventDefault();
 
     if (searchedName !== userNameValue) {
@@ -30,17 +30,9 @@ const Form = ({ searchedName }) => {
 
   return (
     <Div as="form" column width="100%" onSubmit={handleSearch}>
-      <Input
-        type="text"
-        value={userNameValue}
-        placeholder="Enter username"
-        required
-        onChange={handleOnChange}
-      />
-    
-      <Button type="submit">
-        Search
-      </Button>
+      <Input type="text" value={userNameValue} placeholder="Enter username" required onChange={handleOnChange} />
+
+      <Button type="submit">Search</Button>
     </Div>
   );
 };
@@ -55,7 +47,7 @@ const Input = styled.input`
   outline: none;
   background-color: #f2f2f2;
   border: 2px solid #e0e0e0;
-  `;
+`;
 
 const Button = styled.button`
   width: 100%;

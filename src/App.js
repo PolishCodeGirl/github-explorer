@@ -9,45 +9,47 @@ import UserInformation from './components/UserInformation';
 import InfoBox from './components/InfoBox';
 import Loader from './components/Loader';
 
-const mapStateToProps = ({ githubAccounts, githubAccountsLoading, searchedName, error }) => ({ 
+const mapStateToProps = ({ githubAccounts, githubAccountsLoading, searchedName, error }) => ({
   githubAccounts,
   githubAccountsLoading,
   searchedName,
-  error
+  error,
 });
 
 const propTypes = {
   githubAccounts: PropTypes.arrayOf(PropTypes.object).isRequired,
   githubAccountsLoading: PropTypes.bool.isRequired,
   searchedName: PropTypes.string.isRequired,
-  error: PropTypes.bool.isRequired
-}
+  error: PropTypes.bool.isRequired,
+};
 
 function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
-  let content
+  let content;
 
-  if (searchedName && githubAccounts.length > 0) content = (
-    <>
-      <Info>{`Showing users for "${searchedName}"`}</Info> 
-      {githubAccounts.map(account => (
-        <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id} />
-      ))}
-    </>
-  )
-  
-  if (searchedName && githubAccounts.length === 0) content = <InfoBox type="error" message={`Not users available under ${searchedName}`} />
-  
-  if (githubAccountsLoading) content = <Loader />
-    
+  if (searchedName && githubAccounts.length > 0)
+    content = (
+      <>
+        <Info>{`Showing users for "${searchedName}"`}</Info>
+        {githubAccounts.map((account) => (
+          <UserInformation userName={account.login} reposUrl={account.repos_url} key={account.id} />
+        ))}
+      </>
+    );
+
+  if (searchedName && githubAccounts.length === 0)
+    content = <InfoBox type="error" message={`Not users available under ${searchedName}`} />;
+
+  if (githubAccountsLoading) content = <Loader />;
+
   return (
     <Div column itemsCenter margin={10}>
-      {error && <InfoBox type="error" message='Something went wrong, try again!' />}
-      
+      {error && <InfoBox type="error" message="Something went wrong, try again!" />}
+
       <h1>
         <Logo>YND</Logo> GitHub repositories explorer
       </h1>
 
-      <AppContainer column itemsCenter justifyCenter width='100%' maxWidth={500}>
+      <AppContainer column itemsCenter justifyCenter width="100%" maxWidth={500}>
         <Form />
         {content}
       </AppContainer>

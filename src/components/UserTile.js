@@ -11,13 +11,15 @@ const propTypes = {
 };
 
 const defaultProps = {
-  description: ''
-}
+  description: '',
+};
 
 const UserTile = ({ title, description, stars, repoUrl }) => (
   <Wrapper mTop={5} justifyBetween>
     <Div column itemsStart>
-      <TitleLink href={repoUrl} target='_blank' rel="noopener noreferrer">{title}</TitleLink>
+      <TitleLink href={repoUrl} target="_blank" rel="noopener noreferrer">
+        {title}
+      </TitleLink>
       <Description>{description}</Description>
     </Div>
     <Star>{`${stars} ★`}</Star>
@@ -44,14 +46,14 @@ const TitleLink = styled.a`
   &:hover {
     color: #009de0;
   }
-`
+`;
 
 const Star = styled.p`
   font-size: 14px;
   font-weight: bold;
   text-align: center;
   flex: none;
-`
+`;
 
 const Description = styled.p`
   font-size: 14px;
