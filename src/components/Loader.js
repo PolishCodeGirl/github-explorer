@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Loader = styled.div`
+const Loader = styled.div.attrs((props) => ({
+  'data-testid': 'loader',
+}))`
   border: 6px solid #f3f3f3;
   border-top-color: #009de0;
   border-radius: 50%;

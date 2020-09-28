@@ -24,6 +24,11 @@ The application will be available at http://localhost:3000/
 npm run build
 ```
 
+### Testing
+```bash
+npm test
+```
+
 ### Deployment
 ```bash
 npm run deploy

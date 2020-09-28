@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The flow works 1`] = `
+<div>
+  <div
+    class="sc-1qr1lby-0 fgxJn"
+  >
+    <h1>
+      <span
+        class="sc-jrsJCI gnRkIr"
+      >
+        YND
+      </span>
+       GitHub repositories explorer
+    </h1>
+    <div
+      class="sc-1qr1lby-0 sc-pNWxx iUrzEx eJTqIa"
+      width="100%"
+    >
+      <form
+        class="sc-1qr1lby-0 cWObwi"
+        width="100%"
+      >
+        <input
+          class="sc-bdnylx goodOi"
+          placeholder="Enter username"
+          required=""
+          type="text"
+          value="sara"
+        />
+        <button
+          class="sc-gtssRu eSBAEQ"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+      <p
+        class="sc-kEqYlL faKJPi"
+      >
+        Showing users for "sara"
+      </p>
+      <div
+        class="sc-1qr1lby-0 khdmUm"
+        width="100%"
+      >
+        <div
+          class="sc-1qr1lby-0 UserInformation___StyledDiv-sc-1v6v454-0 doMRkI bWBKbH"
+        >
+          <p>
+            sara
+          </p>
+          <span
+            class="sc-fujyUd chdwBd"
+          />
+        </div>
+        <div
+          class="sc-1qr1lby-0 bMIGKt"
+        >
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/CapitalOne-Two-Three"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                CapitalOne-Two-Three
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Educational finance webapp for kids
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              10 ★
+            </p>
+          </div>
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/repo-2"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Reop 2
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Description reop 2
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              0 ★
+            </p>
+          </div>
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/repo-3"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Reop 3
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Description reop 3
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              1 ★
+            </p>
+          </div>
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/repo-4"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Reop 4
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Description reop 4
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              2 ★
+            </p>
+          </div>
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/repo-5"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Reop 5
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Description reop 5
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              3 ★
+            </p>
+          </div>
+          <div
+            class="sc-1qr1lby-0 sc-dlnjPT cVDpBh egYwOy"
+          >
+            <div
+              class="sc-1qr1lby-0 bKUFbA"
+            >
+              <a
+                class="sc-hKFyIo ekfeMC"
+                href="https://github.com/sara/repo-6"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Reop 6
+              </a>
+              <p
+                class="sc-jSFkmK KwDyk"
+              >
+                Description reop 6
+              </p>
+            </div>
+            <p
+              class="sc-eCApGN brKmTP"
+            >
+              4 ★
+            </p>
+          </div>
+          <span
+            class="UserInformation__ShowMore-sc-1v6v454-1 dYJzOO"
+            disabled=""
+          >
+            Show more
+          </span>
+        </div>
+      </div>
+      <div
+        class="sc-1qr1lby-0 khdmUm"
+        width="100%"
+      >
+        <div
+          class="sc-1qr1lby-0 UserInformation___StyledDiv-sc-1v6v454-0 doMRkI bWBKbH"
+        >
+          <p>
+            SaraVieira
+          </p>
+          <span
+            class="sc-fujyUd hvGBic"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-1qr1lby-0 khdmUm"
+        width="100%"
+      >
+        <div
+          class="sc-1qr1lby-0 UserInformation___StyledDiv-sc-1v6v454-0 doMRkI bWBKbH"
+        >
+          <p>
+            sara8086
+          </p>
+          <span
+            class="sc-fujyUd hvGBic"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
