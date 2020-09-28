@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/github-explorer/static/js/main.7e78370c.chunk.js",
-    "main.js.map": "/github-explorer/static/js/main.7e78370c.chunk.js.map",
+    "main.js": "/github-explorer/static/js/main.679c4d92.chunk.js",
+    "main.js.map": "/github-explorer/static/js/main.679c4d92.chunk.js.map",
     "runtime-main.js": "/github-explorer/static/js/runtime-main.efd11135.js",
     "runtime-main.js.map": "/github-explorer/static/js/runtime-main.efd11135.js.map",
     "static/js/2.6545cfc5.chunk.js": "/github-explorer/static/js/2.6545cfc5.chunk.js",
     "static/js/2.6545cfc5.chunk.js.map": "/github-explorer/static/js/2.6545cfc5.chunk.js.map",
     "index.html": "/github-explorer/index.html",
-    "precache-manifest.3570a11a138cc486eb0327e083a0fe19.js": "/github-explorer/precache-manifest.3570a11a138cc486eb0327e083a0fe19.js",
+    "precache-manifest.b86bf4dec38f2c6b9fee8513e7a60af9.js": "/github-explorer/precache-manifest.b86bf4dec38f2c6b9fee8513e7a60af9.js",
     "service-worker.js": "/github-explorer/service-worker.js",
     "static/js/2.6545cfc5.chunk.js.LICENSE.txt": "/github-explorer/static/js/2.6545cfc5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.efd11135.js",
     "static/js/2.6545cfc5.chunk.js",
-    "static/js/main.7e78370c.chunk.js"
+    "static/js/main.679c4d92.chunk.js"
   ]
 }
