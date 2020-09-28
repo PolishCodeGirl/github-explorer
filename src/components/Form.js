@@ -43,6 +43,7 @@ export default connect(mapStateToProps)(Form);
 
 const Input = styled.input`
   width: 100%;
+  font-size: 16px;
   padding: 10px;
   outline: none;
   background-color: #f2f2f2;
