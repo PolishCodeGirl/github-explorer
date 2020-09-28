@@ -30,7 +30,7 @@ const server = setupServer(
 
     return response(context.json({ items: pages[request.url.searchParams.get('page')] }));
   }),
-  rest.get('https://api.github.com/users/:username/repos', (_, response, context) =>
+  rest.get('https://api.github.com/users/sara/repos', (_, response, context) =>
     response(
       context.json([
         {
@@ -77,7 +77,8 @@ const server = setupServer(
         },
       ])
     )
-  )
+  ),
+  rest.get('https://api.github.com/users/SaraVieira/repos', (_, response, context) => response(context.json([])))
 );
 
 test('The flow works', async () => {
@@ -122,6 +123,11 @@ test('The flow works', async () => {
   // Click 'Show more' to display more user repos
   fireEvent.click(getByText('Show more'));
   expect(await findByText('Reop 6')).toBeVisible();
+
+  // Click on the first user
+  fireEvent.click(getByText('SaraVieira'));
+  expect(getByTestId('loader')).toBeVisible();
+  expect(await findByText(`SaraVieira doesn't have any repositories`)).toBeVisible();
 
   // Make sure the UI didn't change
   expect(container).toMatchSnapshot();

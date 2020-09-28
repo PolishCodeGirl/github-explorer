@@ -9,6 +9,10 @@ const propTypes = {
   type: PropTypes.oneOf(['info', 'error']),
 };
 
+const defaultProps = {
+  type: 'info',
+};
+
 const InfoBox = ({ message, type, ...props }) => (
   <Wrapper justifyCenter mTop={10} type={type} {...props}>
     <p>{message}</p>
@@ -16,6 +20,7 @@ const InfoBox = ({ message, type, ...props }) => (
 );
 
 InfoBox.propTypes = propTypes;
+InfoBox.defaultProps = defaultProps;
 
 export default InfoBox;
 

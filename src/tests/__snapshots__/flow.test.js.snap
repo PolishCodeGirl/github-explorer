@@ -232,8 +232,20 @@ exports[`The flow works 1`] = `
             SaraVieira
           </p>
           <span
-            class="sc-fujyUd hvGBic"
+            class="sc-fujyUd chdwBd"
           />
+        </div>
+        <div
+          class="sc-1qr1lby-0 bMIGKt"
+        >
+          <div
+            class="sc-1qr1lby-0 sc-iCoHVE hdMEQt hHBgEN"
+            type="info"
+          >
+            <p>
+              SaraVieira doesn't have any repositories
+            </p>
+          </div>
         </div>
       </div>
       <div
