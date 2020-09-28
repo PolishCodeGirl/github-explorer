@@ -37,7 +37,7 @@ function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
     );
 
   if (searchedName && githubAccounts.length === 0)
-    content = <InfoBox type="error" message={`Not users available under ${searchedName}`} />;
+    content = <InfoBox type="error" message={`Not users available under ${searchedName}`} mTop={18} />;
 
   if (githubAccountsLoading) content = <Loader />;
 
@@ -73,6 +73,6 @@ const Logo = styled.span`
 
 const Info = styled.p`
   color: #747474;
-  margin: 15px 0;
+  margin: 18px 0;
   align-self: flex-start;
 `;

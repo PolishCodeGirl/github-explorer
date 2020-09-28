@@ -10,7 +10,7 @@ const propTypes = {
 };
 
 const InfoBox = ({ message, type, ...props }) => (
-  <Wrapper justifyCenter mTop={5} type={type} {...props}>
+  <Wrapper justifyCenter mTop={10} type={type} {...props}>
     <p>{message}</p>
   </Wrapper>
 );
@@ -22,12 +22,12 @@ export default InfoBox;
 const Wrapper = styled(Div)`
   width: 100%;
   border: 2px solid #009de0;
-
   border-radius: 2px;
 
   padding: 15px;
   font-size: 14px;
   color: white;
+  text-align: center;
 
   ${({ type }) => {
     if (type === 'info') {

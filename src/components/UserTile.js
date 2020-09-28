@@ -15,7 +15,7 @@ const defaultProps = {
 };
 
 const UserTile = ({ title, description, stars, repoUrl }) => (
-  <Wrapper mTop={5} justifyBetween>
+  <Wrapper mTop={10} justifyBetween>
     <Div column itemsStart>
       <TitleLink href={repoUrl} target="_blank" rel="noopener noreferrer">
         {title}

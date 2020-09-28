@@ -61,7 +61,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
             repoUrl={repo.html_url}
           />
         ))}
-        <ShowMore onClick={handleShowMore} disabled={Boolean(reposConter > userReposAmount)}>
+        <ShowMore onClick={handleShowMore} disabled={Boolean(reposConter >= userReposAmount)}>
           Show more
         </ShowMore>
       </>
@@ -72,7 +72,7 @@ const UserInformation = ({ userName, reposUrl, userRepos, userReposLoading, name
   if (nameOfUserWithReposLoading === userName) content = <Loader />;
 
   return (
-    <Div column mTop={10} width="100%">
+    <Div column mBottom={10} width="100%">
       <Div padding={5} justifyBetween onClick={handleClick} background="#f2f2f2">
         <p>{userName}</p>
         <Arrow isRotated={isOpen} />
