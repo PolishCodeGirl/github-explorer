@@ -97,7 +97,7 @@ test('The flow works', async () => {
   fireEvent.click(getByText('Search'));
   expect(getByTestId('loader')).toBeVisible();
 
-  // Info label should appear after we get 'fetchUsers' API response
+  // Info label should appear after we get 'getGithubUsers' API response
   expect(await findByText('Showing users for "sara"')).toBeVisible();
   expect(store.getState().searchedName).toEqual('sara');
   expect(store.getState().githubAccounts).toHaveLength(3);
@@ -111,7 +111,7 @@ test('The flow works', async () => {
   fireEvent.click(getByText('sara'));
   expect(getByTestId('loader')).toBeVisible();
 
-  // Repository info should appear after we get 'fetchUserRepos' API response
+  // Repository info should appear after we get 'getUserRepos' API response
   expect(await findByText('CapitalOne-Two-Three')).toBeVisible();
   expect(await findByText('Reop 2')).toBeVisible();
   expect(await findByText('Reop 3')).toBeVisible();
