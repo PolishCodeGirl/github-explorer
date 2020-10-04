@@ -6,12 +6,7 @@ exports[`The flow works 1`] = `
     class="sc-1qr1lby-0 fgxJn"
   >
     <h1>
-      <span
-        class="sc-jrsJCI gnRkIr"
-      >
-        YND
-      </span>
-       GitHub repositories explorer
+      GitHub repositories explorer
     </h1>
     <div
       class="sc-1qr1lby-0 sc-pNWxx iUrzEx eJTqIa"
@@ -36,7 +31,7 @@ exports[`The flow works 1`] = `
         </button>
       </form>
       <p
-        class="sc-kEqYlL faKJPi"
+        class="sc-jrsJCI keEtOX"
       >
         Showing users for "sara"
       </p>
