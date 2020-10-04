@@ -45,9 +45,7 @@ function App({ githubAccounts, githubAccountsLoading, searchedName, error }) {
     <Div column itemsCenter margin={10}>
       {error && <InfoBox type="error" message="Something went wrong, try again!" />}
 
-      <h1>
-        <Logo>YND</Logo> GitHub repositories explorer
-      </h1>
+      <h1>GitHub repositories explorer</h1>
 
       <AppContainer column itemsCenter justifyCenter width="100%" maxWidth={500}>
         <Form />
@@ -64,11 +62,6 @@ export default connect(mapStateToProps)(App);
 const AppContainer = styled(Div)`
   font-size: 16px;
   word-break: break-word;
-`;
-
-const Logo = styled.span`
-  color: #32d2d1;
-  font-weight: bold;
 `;
 
 const Info = styled.p`
